@@ -1,15 +1,14 @@
 //
-//  ViewController.h
+//  CheckListItem.m
 //  ToDoList
 //
 //  Created by 鹏 付 on 31/05/2017.
 //  Copyright © 2017 鹏 付. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "CheckListItem.h"
 
-@interface ViewController : UITableViewController
+@implementation CheckListItem
 
 
 @end
-

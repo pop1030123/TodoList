@@ -16,6 +16,7 @@
 		C0CCE3061EDEE49D006CBFD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0CCE3041EDEE49D006CBFD6 /* LaunchScreen.storyboard */; };
 		C0CCE3111EDEE49D006CBFD6 /* ToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3101EDEE49D006CBFD6 /* ToDoListTests.m */; };
 		C0CCE31C1EDEE49D006CBFD6 /* ToDoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE31B1EDEE49D006CBFD6 /* ToDoListUITests.m */; };
+		C0CCE32E1EDEF99D006CBFD6 /* CheckListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE32D1EDEF99D006CBFD6 /* CheckListItem.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		C0CCE3171EDEE49D006CBFD6 /* ToDoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0CCE31B1EDEE49D006CBFD6 /* ToDoListUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToDoListUITests.m; sourceTree = "<group>"; };
 		C0CCE31D1EDEE49D006CBFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C0CCE32C1EDEF99D006CBFD6 /* CheckListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckListItem.h; sourceTree = "<group>"; };
+		C0CCE32D1EDEF99D006CBFD6 /* CheckListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckListItem.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				C0CCE3071EDEE49D006CBFD6 /* Info.plist */,
 				C0CCE2FF1EDEE49D006CBFD6 /* ToDoList.xcdatamodeld */,
 				C0CCE2F31EDEE49D006CBFD6 /* Supporting Files */,
+				C0CCE32C1EDEF99D006CBFD6 /* CheckListItem.h */,
+				C0CCE32D1EDEF99D006CBFD6 /* CheckListItem.m */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -280,6 +285,7 @@
 				C0CCE2F81EDEE49D006CBFD6 /* AppDelegate.m in Sources */,
 				C0CCE2F51EDEE49D006CBFD6 /* main.m in Sources */,
 				C0CCE3011EDEE49D006CBFD6 /* ToDoList.xcdatamodeld in Sources */,
+				C0CCE32E1EDEF99D006CBFD6 /* CheckListItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +435,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.popfu.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,6 +447,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = ToDoList/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.popfu.ToDoList;
 				PRODUCT_NAME = "$(TARGET_NAME)";
