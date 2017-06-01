@@ -10,5 +10,7 @@
 
 @implementation CheckListItem
 
-
+-(void)toggleChecked{
+    self.checked = !self.checked ;
+}
 @end

@@ -10,6 +10,7 @@
 #import "CheckListItem.h"
 
 @interface ViewController ()
+- (IBAction)addItem:(id)sender;
 
 @end
 
@@ -56,11 +57,11 @@ NSMutableArray *_items ;
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"checkListItem"] ;
-    UILabel *label = [cell viewWithTag:100] ;
     CheckListItem *itemData = _items[indexPath.row] ;
     
-    label.text = itemData.text ;
-    cell.accessoryType = itemData.checked?UITableViewCellAccessoryCheckmark:UITableViewCellAccessoryNone;
+    [self configTextForCell:cell withCheckListItem:itemData] ;
+    [self configCheckmarkForCell:cell withCheckListItem:itemData] ;
+
     return cell ;
 }
 
@@ -69,15 +70,47 @@ NSMutableArray *_items ;
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath] ;
     
     CheckListItem *itemData = _items[indexPath.row] ;
-    itemData.checked = !itemData.checked ;
+    [itemData toggleChecked] ;
     
-    if(itemData.checked){
-        cell.accessoryType = UITableViewCellAccessoryCheckmark ;
-    }else{
-        cell.accessoryType = UITableViewCellAccessoryNone ;
-    }
+    [self configCheckmarkForCell:cell withCheckListItem:itemData] ;
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES] ;
 }
 
+-(void)configCheckmarkForCell:(UITableViewCell*)cell withCheckListItem:(CheckListItem*)item{
+    if(item.checked){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark ;
+    }else{
+        cell.accessoryType = UITableViewCellAccessoryNone ;
+    }
+}
+
+-(void)configTextForCell:(UITableViewCell*)cell withCheckListItem:(CheckListItem*)item{
+    UILabel *label = [cell viewWithTag:100] ;
+    label.text = item.text ;
+}
+
+-(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+
+    [_items removeObjectAtIndex:indexPath.row] ;
+    
+    NSArray* indexPaths = @[indexPath] ;
+    
+    [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic] ;
+}
+
+- (IBAction)addItem:(id)sender {
+    NSInteger newRowIndex = [_items count] ;
+    CheckListItem* newCheckListItem = [[CheckListItem alloc]init] ;
+    
+    newCheckListItem.text = [NSString stringWithFormat:@"我是新来的%ld",(long)newRowIndex];
+    newCheckListItem.checked = NO ;
+    
+    [_items addObject:newCheckListItem] ;
+    
+    NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0] ;
+    NSArray* indexPath = @[newIndexPath] ;
+    
+    [self.tableView insertRowsAtIndexPaths:indexPath withRowAnimation:UITableViewRowAnimationAutomatic] ;
+}
 @end
