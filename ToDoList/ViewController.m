@@ -99,18 +99,29 @@ NSMutableArray *_items ;
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic] ;
 }
 
-- (IBAction)addItem:(id)sender {
+-(void)addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(CheckListItem *)item{
+    
     NSInteger newRowIndex = [_items count] ;
-    CheckListItem* newCheckListItem = [[CheckListItem alloc]init] ;
+    [_items addObject:item] ;
     
-    newCheckListItem.text = [NSString stringWithFormat:@"我是新来的%ld",(long)newRowIndex];
-    newCheckListItem.checked = NO ;
+    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0] ;
     
-    [_items addObject:newCheckListItem] ;
+    NSArray* indexPaths = @[indexPath] ;
+    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic] ;
     
-    NSIndexPath* newIndexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0] ;
-    NSArray* indexPath = @[newIndexPath] ;
-    
-    [self.tableView insertRowsAtIndexPaths:indexPath withRowAnimation:UITableViewRowAnimationAutomatic] ;
+    [self dismissViewControllerAnimated:YES completion:nil] ;
 }
+
+-(void)addItemViewControllerDidCancel:(AddItemViewController *)controller{
+    [self dismissViewControllerAnimated:YES completion:nil] ;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"AddItem"]){
+        UINavigationController* navigationController = segue.destinationViewController ;
+        AddItemViewController* addItemController = (AddItemViewController*) navigationController.topViewController ;
+        addItemController.delegate = self ;
+    }
+}
+
 @end
