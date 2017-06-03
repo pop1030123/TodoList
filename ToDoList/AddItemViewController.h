@@ -16,6 +16,7 @@
 
 -(void)addItemViewControllerDidCancel:(AddItemViewController*)controller ;
 -(void)addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(CheckListItem*)item ;
+-(void)addItemViewController:(AddItemViewController*)controller didFinishEditingItem:(CheckListItem*)item ;
 
 @end
 
@@ -27,5 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 - (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;
+
+@property(strong ,nonatomic)CheckListItem* itemToEdit ;
 
 @end
