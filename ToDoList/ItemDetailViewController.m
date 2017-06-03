@@ -1,19 +1,19 @@
 //
-//  AddItemViewController.m
+//  ItemDetailViewController.m
 //  ToDoList
 //
 //  Created by 鹏 付 on 02/06/2017.
 //  Copyright © 2017 鹏 付. All rights reserved.
 //
 
-#import "AddItemViewController.h"
+#import "ItemDetailViewController.h"
 #import "CheckListItem.h"
 
-@interface AddItemViewController ()
+@interface ItemDetailViewController ()
 
 @end
 
-@implementation AddItemViewController
+@implementation ItemDetailViewController
 
 -(BOOL)textField:(UITextField*)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(nonnull NSString *)string{
     NSString* newText = [textField.text stringByReplacingCharactersInRange:range withString:string] ;
@@ -60,7 +60,7 @@
 }
 
 - (IBAction)cancel:(id)sender {
-    [self.delegate addItemViewControllerDidCancel:self] ;
+    [self.delegate itemDetailViewControllerDidCancel:self] ;
 }
 
 - (IBAction)done:(id)sender {
@@ -71,10 +71,10 @@
         newItem.text = self.textField.text ;
         newItem.checked = NO ;
         
-        [self.delegate addItemViewController:self didFinishAddingItem:newItem] ;
+        [self.delegate itemDetailViewController:self didFinishAddingItem:newItem] ;
     }else{
         self.itemToEdit.text = self.textField.text ;
-        [self.delegate addItemViewController:self didFinishEditingItem:self.itemToEdit];
+        [self.delegate itemDetailViewController:self didFinishEditingItem:self.itemToEdit];
     }
 }
 @end

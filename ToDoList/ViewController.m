@@ -10,7 +10,6 @@
 #import "CheckListItem.h"
 
 @interface ViewController ()
-- (IBAction)addItem:(id)sender;
 
 @end
 
@@ -101,7 +100,7 @@ NSMutableArray *_items ;
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic] ;
 }
 
--(void)addItemViewController:(AddItemViewController *)controller didFinishAddingItem:(CheckListItem *)item{
+-(void)itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(CheckListItem *)item{
     
     NSInteger newRowIndex = [_items count] ;
     [_items addObject:item] ;
@@ -114,7 +113,7 @@ NSMutableArray *_items ;
     [self dismissViewControllerAnimated:YES completion:nil] ;
 }
 
--(void)addItemViewController:(AddItemViewController *)controller didFinishEditingItem:(CheckListItem *)item{
+-(void)itemDetailViewController:(ItemDetailViewController *)controller didFinishEditingItem:(CheckListItem *)item{
     NSInteger index = [_items indexOfObject:item] ;
     NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:0] ;
     
@@ -124,18 +123,18 @@ NSMutableArray *_items ;
     [self dismissViewControllerAnimated:YES completion:nil] ;
 }
 
--(void)addItemViewControllerDidCancel:(AddItemViewController *)controller{
+-(void)itemDetailViewControllerDidCancel:(ItemDetailViewController *)controller{
     [self dismissViewControllerAnimated:YES completion:nil] ;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"AddItem"]){
         UINavigationController* navigationController = segue.destinationViewController ;
-        AddItemViewController* addItemController = (AddItemViewController*) navigationController.topViewController ;
+        ItemDetailViewController* addItemController = (ItemDetailViewController*) navigationController.topViewController ;
         addItemController.delegate = self ;
     }else if([segue.identifier isEqualToString:@"EditItem"]){
         UINavigationController* navigationController = segue.destinationViewController ;
-        AddItemViewController* addItemController = (AddItemViewController*) navigationController.topViewController ;
+        ItemDetailViewController* addItemController = (ItemDetailViewController*) navigationController.topViewController ;
         
         addItemController.delegate = self ;
         NSIndexPath* indexPath = [self.tableView indexPathForCell:sender] ;

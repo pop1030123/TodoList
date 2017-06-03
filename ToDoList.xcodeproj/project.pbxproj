@@ -17,7 +17,7 @@
 		C0CCE3111EDEE49D006CBFD6 /* ToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3101EDEE49D006CBFD6 /* ToDoListTests.m */; };
 		C0CCE31C1EDEE49D006CBFD6 /* ToDoListUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE31B1EDEE49D006CBFD6 /* ToDoListUITests.m */; };
 		C0CCE32E1EDEF99D006CBFD6 /* CheckListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE32D1EDEF99D006CBFD6 /* CheckListItem.m */; };
-		C0CCE3311EE1AFC6006CBFD6 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3301EE1AFC6006CBFD6 /* AddItemViewController.m */; };
+		C0CCE3311EE1AFC6006CBFD6 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3301EE1AFC6006CBFD6 /* ItemDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,8 +57,8 @@
 		C0CCE31D1EDEE49D006CBFD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C0CCE32C1EDEF99D006CBFD6 /* CheckListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckListItem.h; sourceTree = "<group>"; };
 		C0CCE32D1EDEF99D006CBFD6 /* CheckListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckListItem.m; sourceTree = "<group>"; };
-		C0CCE32F1EE1AFC6006CBFD6 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
-		C0CCE3301EE1AFC6006CBFD6 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
+		C0CCE32F1EE1AFC6006CBFD6 /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
+		C0CCE3301EE1AFC6006CBFD6 /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,8 +121,8 @@
 				C0CCE2F31EDEE49D006CBFD6 /* Supporting Files */,
 				C0CCE32C1EDEF99D006CBFD6 /* CheckListItem.h */,
 				C0CCE32D1EDEF99D006CBFD6 /* CheckListItem.m */,
-				C0CCE32F1EE1AFC6006CBFD6 /* AddItemViewController.h */,
-				C0CCE3301EE1AFC6006CBFD6 /* AddItemViewController.m */,
+				C0CCE32F1EE1AFC6006CBFD6 /* ItemDetailViewController.h */,
+				C0CCE3301EE1AFC6006CBFD6 /* ItemDetailViewController.m */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CCE2FB1EDEE49D006CBFD6 /* ViewController.m in Sources */,
-				C0CCE3311EE1AFC6006CBFD6 /* AddItemViewController.m in Sources */,
+				C0CCE3311EE1AFC6006CBFD6 /* ItemDetailViewController.m in Sources */,
 				C0CCE2F81EDEE49D006CBFD6 /* AppDelegate.m in Sources */,
 				C0CCE2F51EDEE49D006CBFD6 /* main.m in Sources */,
 				C0CCE3011EDEE49D006CBFD6 /* ToDoList.xcdatamodeld in Sources */,
