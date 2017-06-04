@@ -8,6 +8,8 @@
 
 #import "CheckListViewController.h"
 #import "CheckListItem.h"
+#import "CheckList.h"
+
 
 @interface CheckListViewController ()
 
@@ -50,6 +52,7 @@ NSMutableArray *_items ;
     ///Users/pengfu/Library/Developer/CoreSimulator/Devices/8D9971F7-1BB7-4487-94F8-79308A112AE9/data/Containers/Data/Application/E384CF31-DF97-4A31-8112-15EB81B0A13F/Documents/CheckLists.plist
     NSLog(@"file path:%@" ,[self dataFilePath]) ;
     // Do any additional setup after loading the view, typically from a nib.
+    self.title = self.checkList.name ;
 }
 
 -(NSString*)documentsDirectory{

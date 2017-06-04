@@ -20,6 +20,7 @@
 		C0CCE3311EE1AFC6006CBFD6 /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3301EE1AFC6006CBFD6 /* ItemDetailViewController.m */; };
 		C0CCE3341EE399AC006CBFD6 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3331EE399AC006CBFD6 /* AllListsViewController.m */; };
 		C0CCE3371EE39D94006CBFD6 /* CheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3361EE39D94006CBFD6 /* CheckList.m */; };
+		C0CCE33A1EE3A796006CBFD6 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3391EE3A796006CBFD6 /* ListDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		C0CCE3331EE399AC006CBFD6 /* AllListsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllListsViewController.m; sourceTree = "<group>"; };
 		C0CCE3351EE39D94006CBFD6 /* CheckList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckList.h; sourceTree = "<group>"; };
 		C0CCE3361EE39D94006CBFD6 /* CheckList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckList.m; sourceTree = "<group>"; };
+		C0CCE3381EE3A796006CBFD6 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
+		C0CCE3391EE3A796006CBFD6 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				C0CCE3331EE399AC006CBFD6 /* AllListsViewController.m */,
 				C0CCE3351EE39D94006CBFD6 /* CheckList.h */,
 				C0CCE3361EE39D94006CBFD6 /* CheckList.m */,
+				C0CCE3381EE3A796006CBFD6 /* ListDetailViewController.h */,
+				C0CCE3391EE3A796006CBFD6 /* ListDetailViewController.m */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				C0CCE2F51EDEE49D006CBFD6 /* main.m in Sources */,
 				C0CCE3341EE399AC006CBFD6 /* AllListsViewController.m in Sources */,
 				C0CCE3011EDEE49D006CBFD6 /* ToDoList.xcdatamodeld in Sources */,
+				C0CCE33A1EE3A796006CBFD6 /* ListDetailViewController.m in Sources */,
 				C0CCE32E1EDEF99D006CBFD6 /* CheckListItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
