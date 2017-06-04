@@ -10,16 +10,11 @@
 #import "CheckListItem.h"
 #import "CheckList.h"
 
-
 @interface CheckListViewController ()
 
 @end
 
 @implementation CheckListViewController
-
-
-//NSMutableArray *_items ;
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];

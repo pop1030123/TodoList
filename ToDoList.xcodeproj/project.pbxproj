@@ -21,6 +21,7 @@
 		C0CCE3341EE399AC006CBFD6 /* AllListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3331EE399AC006CBFD6 /* AllListsViewController.m */; };
 		C0CCE3371EE39D94006CBFD6 /* CheckList.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3361EE39D94006CBFD6 /* CheckList.m */; };
 		C0CCE33A1EE3A796006CBFD6 /* ListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE3391EE3A796006CBFD6 /* ListDetailViewController.m */; };
+		C0CCE33D1EE40C74006CBFD6 /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C0CCE33C1EE40C74006CBFD6 /* DataModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		C0CCE3361EE39D94006CBFD6 /* CheckList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CheckList.m; sourceTree = "<group>"; };
 		C0CCE3381EE3A796006CBFD6 /* ListDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListDetailViewController.h; sourceTree = "<group>"; };
 		C0CCE3391EE3A796006CBFD6 /* ListDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListDetailViewController.m; sourceTree = "<group>"; };
+		C0CCE33B1EE40C74006CBFD6 /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		C0CCE33C1EE40C74006CBFD6 /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				C0CCE3361EE39D94006CBFD6 /* CheckList.m */,
 				C0CCE3381EE3A796006CBFD6 /* ListDetailViewController.h */,
 				C0CCE3391EE3A796006CBFD6 /* ListDetailViewController.m */,
+				C0CCE33B1EE40C74006CBFD6 /* DataModel.h */,
+				C0CCE33C1EE40C74006CBFD6 /* DataModel.m */,
 			);
 			path = ToDoList;
 			sourceTree = "<group>";
@@ -302,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0CCE3371EE39D94006CBFD6 /* CheckList.m in Sources */,
+				C0CCE33D1EE40C74006CBFD6 /* DataModel.m in Sources */,
 				C0CCE2FB1EDEE49D006CBFD6 /* CheckListViewController.m in Sources */,
 				C0CCE3311EE1AFC6006CBFD6 /* ItemDetailViewController.m in Sources */,
 				C0CCE2F81EDEE49D006CBFD6 /* AppDelegate.m in Sources */,
