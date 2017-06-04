@@ -30,9 +30,26 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated] ;
+    self.navigationController.delegate = self ;
+    NSInteger index = [self.dataModel indexOfCheckList] ;
+    NSLog(@"viewDidAppear:index of checkList:%ld" ,(long)index) ;
+    if(index >=0 && index < [self.dataModel.lists count]){
+        CheckList* checkList = _dataModel.lists[index] ;
+        [self performSegueWithIdentifier:@"ShowCheckList" sender:checkList] ;
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)navigationController:(UINavigationController*)navigationController willShowViewController:(nonnull UIViewController *)viewController animated:(BOOL)animated{
+    if(self == viewController){
+        [_dataModel setIndexOfCheckList:-1] ;
+    }
 }
 
 #pragma mark - Table view data source
@@ -58,6 +75,9 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [_dataModel setIndexOfCheckList:indexPath.row] ;
+    
     CheckList* checkList = self.dataModel.lists[indexPath.row] ;
     
     [self performSegueWithIdentifier:@"ShowCheckList" sender:checkList] ;

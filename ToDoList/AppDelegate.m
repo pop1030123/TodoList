@@ -19,7 +19,6 @@
 DataModel* _dataModel ;
 
 -(void)saveData{
-    
     [_dataModel saveCheckLists] ;
 }
 

@@ -10,12 +10,32 @@
 
 @implementation DataModel
 
+-(void)registerDefaults{
+    NSLog(@"registerDefaults:index of checkList:-1") ;
+    
+    NSDictionary* dict = @{@"CheckListIndex":@-1} ;
+    [[NSUserDefaults standardUserDefaults]registerDefaults:dict] ;
+    // 必须调用synchronize方法，才能保证初始化字典为-1有效果?
+    [[NSUserDefaults standardUserDefaults]synchronize] ;
+}
 
 -(id)init{
     if(self = [super init]){
         [self loadCheckLists] ;
+        [self registerDefaults] ;
     }
     return self ;
+}
+
+-(NSInteger)indexOfCheckList{
+    NSInteger index =[[NSUserDefaults standardUserDefaults]integerForKey:@"CheckListIndex"] ;
+    NSLog(@"get indexOfCheckList:%ld" ,index) ;
+    return index ;
+}
+
+-(void)setIndexOfCheckList:(NSInteger)index{
+    NSLog(@"set indexOfCheckList:%ld" ,index) ;
+    [[NSUserDefaults standardUserDefaults]setInteger:index forKey:@"CheckListIndex"] ;
 }
 
 #pragma mark - save and load DATA
