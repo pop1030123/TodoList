@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface CheckList : NSObject
+@interface CheckList : NSObject<NSCoding>
 
 
 @property(nonatomic ,copy)NSString* name ;
+@property(nonatomic,strong)NSMutableArray* items ;
 
 @end
