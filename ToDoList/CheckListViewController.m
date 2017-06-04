@@ -1,19 +1,19 @@
 //
-//  ViewController.m
+//  CheckListViewController.m
 //  ToDoList
 //
 //  Created by 鹏 付 on 31/05/2017.
 //  Copyright © 2017 鹏 付. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CheckListViewController.h"
 #import "CheckListItem.h"
 
-@interface ViewController ()
+@interface CheckListViewController ()
 
 @end
 
-@implementation ViewController
+@implementation CheckListViewController
 
 
 NSMutableArray *_items ;
