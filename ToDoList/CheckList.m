@@ -7,6 +7,7 @@
 //
 
 #import "CheckList.h"
+#import "CheckListItem.h"
 
 @implementation CheckList
 
@@ -28,6 +29,16 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.name forKey:@"Name"] ;
     [aCoder encodeObject:self.items forKey:@"List"] ;
+}
+
+-(int)countUnDoneItem{
+    int count = 0 ;
+    for (CheckListItem* item in self.items){
+        if(!item.checked){
+            count+=1 ;
+        }
+    }
+    return count ;
 }
 
 

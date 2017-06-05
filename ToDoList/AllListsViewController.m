@@ -41,6 +41,11 @@
     }
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated] ;
+    [self.tableView reloadData] ;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -64,11 +69,21 @@
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier] ;
     if(cell == nil){
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier] ;
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier] ;
     }
     CheckList* checkList = self.dataModel.lists[indexPath.row] ;
     
     cell.textLabel.text = checkList.name ;
+    int unDoneCount = [checkList countUnDoneItem] ;
+    if(unDoneCount == 0){
+        if([checkList.items count] == 0){
+            cell.detailTextLabel.text = @"No Items" ;
+        }else{
+            cell.detailTextLabel.text = @"All Done" ;
+        }
+    }else{
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%d remain.",unDoneCount] ;
+    }
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton ;
     
     return cell ;

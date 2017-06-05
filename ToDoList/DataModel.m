@@ -7,22 +7,36 @@
 //
 
 #import "DataModel.h"
+#import "CheckList.h"
 
 @implementation DataModel
 
 -(void)registerDefaults{
     NSLog(@"registerDefaults:index of checkList:-1") ;
     
-    NSDictionary* dict = @{@"CheckListIndex":@-1} ;
+    NSDictionary* dict = @{@"CheckListIndex":@-1 ,@"FirstTime":@YES} ;
     [[NSUserDefaults standardUserDefaults]registerDefaults:dict] ;
     // 必须调用synchronize方法，才能保证初始化字典为-1有效果?
     [[NSUserDefaults standardUserDefaults]synchronize] ;
+}
+
+-(void)handleFirstTime{
+    BOOL firstTime = [[NSUserDefaults standardUserDefaults] boolForKey:@"FirstTime"] ;
+    if(firstTime){
+        CheckList* checkList = [[CheckList alloc] init] ;
+        checkList.name = @"List" ;
+        [self.lists addObject:checkList] ;
+        [self setIndexOfCheckList:0] ;
+        [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"FirstTime"] ;
+    }
+    
 }
 
 -(id)init{
     if(self = [super init]){
         [self loadCheckLists] ;
         [self registerDefaults] ;
+        [self handleFirstTime] ;
     }
     return self ;
 }
