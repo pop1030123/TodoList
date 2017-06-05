@@ -32,6 +32,10 @@
     
 }
 
+-(void)sortList{
+    [self.lists sortUsingSelector:@selector(compare:)] ;
+}
+
 -(id)init{
     if(self = [super init]){
         [self loadCheckLists] ;

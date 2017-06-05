@@ -86,6 +86,8 @@
     }
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton ;
     
+    cell.imageView.image = [UIImage imageNamed:checkList.iconName] ;
+    
     return cell ;
 }
 
@@ -133,23 +135,17 @@
 
 -(void)listDetailViewController:(ListDetailViewController *)controller didFinishAddingCheckList:(CheckList *)item{
     
-    NSInteger newRowIndex = [self.dataModel.lists count] ;
     [self.dataModel.lists addObject:item] ;
-    
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:newRowIndex inSection:0] ;
-    
-    NSArray* indexPaths = @[indexPath] ;
-    [self.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic] ;
+    [self.dataModel sortList] ;
+    [self.tableView reloadData] ;
     
     [self dismissViewControllerAnimated:YES completion:nil] ;
 }
 
 -(void)listDetailViewController:(ListDetailViewController *)controller didFinishEditingCheckList:(CheckList *)item{
-    NSInteger index = [self.dataModel.lists indexOfObject:item] ;
-    NSIndexPath* indexPath = [NSIndexPath indexPathForRow:index inSection:0] ;
+    [self.dataModel sortList] ;
+    [self.tableView reloadData] ;
     
-    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:indexPath] ;
-    cell.textLabel.text = item.name ;
     [self dismissViewControllerAnimated:YES completion:nil] ;
 }
 

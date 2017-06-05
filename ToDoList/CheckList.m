@@ -14,6 +14,7 @@
 -(id)init{
     if(self = [super init]){
         self.items = [[NSMutableArray alloc]initWithCapacity:20] ;
+        self.iconName = @"No Icon" ;
     }
     return self ;
 }
@@ -22,6 +23,7 @@
     if(self = [super init]){
         self.name = [aDecoder decodeObjectForKey:@"Name"] ;
         self.items = [aDecoder decodeObjectForKey:@"List"] ;
+        self.iconName = [aDecoder decodeObjectForKey:@"IconName"] ;
     }
     return self ;
 }
@@ -29,6 +31,7 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.name forKey:@"Name"] ;
     [aCoder encodeObject:self.items forKey:@"List"] ;
+    [aCoder encodeObject:self.iconName forKey:@"IconName"] ;
 }
 
 -(int)countUnDoneItem{
@@ -39,6 +42,10 @@
         }
     }
     return count ;
+}
+
+-(NSComparisonResult)compare:(CheckList*)otherCheckList{
+    return [self.name localizedStandardCompare:otherCheckList.name] ;
 }
 
 

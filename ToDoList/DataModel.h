@@ -18,4 +18,6 @@
 
 -(NSInteger)indexOfCheckList;
 
+-(void)sortList ;
+
 @end

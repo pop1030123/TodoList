@@ -8,12 +8,15 @@
 
 #import "ListDetailViewController.h"
 #import "CheckList.h"
+#import "IconPickerViewController.h"
 
 @interface ListDetailViewController ()
 
 @end
 
 @implementation ListDetailViewController
+
+NSString* _iconName ;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +25,9 @@
         self.title = @"Edit CheckList" ;
         self.textField.text = self.checkListToEdit.name ;
         self.doneBarButton.enabled = YES ;
+        self.iconImageView.image = [UIImage imageNamed:self.checkListToEdit.iconName] ;
+    }else{
+    
     }
     
     // Uncomment the following line to preserve selection between presentations.
@@ -48,10 +54,12 @@
 -(IBAction)done:(id)sender{
     if(self.checkListToEdit != nil){
         self.checkListToEdit.name = self.textField.text ;
+        self.checkListToEdit.iconName = _iconName ;
         [self.delegate listDetailViewController:self didFinishEditingCheckList:self.checkListToEdit] ;
     }else{
         CheckList* newCheckList = [[CheckList alloc]init] ;
         newCheckList.name = self.textField.text ;
+        newCheckList.iconName = _iconName ;
         [self.delegate listDetailViewController:self didFinishAddingCheckList:newCheckList] ;
     }
 }
@@ -62,10 +70,26 @@
     return YES ;
 }
 
-#pragma mark - Table view data source
--(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    return nil ;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"PickIcon"]){
+        IconPickerViewController* controller = segue.destinationViewController ;
+        controller.delegate = self ;
+    }
 }
 
+-(void)iconPicker:(IconPickerViewController *)controller didPickIcon:(NSString *)iconName{
+    self.iconImageView.image = [UIImage imageNamed:iconName] ;
+    _iconName = iconName ;
+    [self.navigationController popViewControllerAnimated:YES] ;
+}
+
+#pragma mark - Table view data source
+-(NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if(indexPath.section == 1){
+        return indexPath ;
+    }else{
+        return nil ;
+    }
+}
 
 @end
