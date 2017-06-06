@@ -20,4 +20,6 @@
 
 -(void)sortList ;
 
++(NSInteger)nextCheckListItemId ;
+
 @end

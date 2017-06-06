@@ -14,7 +14,7 @@
 -(void)registerDefaults{
     NSLog(@"registerDefaults:index of checkList:-1") ;
     
-    NSDictionary* dict = @{@"CheckListIndex":@-1 ,@"FirstTime":@YES} ;
+    NSDictionary* dict = @{@"CheckListIndex":@-1 ,@"FirstTime":@YES ,@"CheckListItemId":@0} ;
     [[NSUserDefaults standardUserDefaults]registerDefaults:dict] ;
     // 必须调用synchronize方法，才能保证初始化字典为-1有效果?
     [[NSUserDefaults standardUserDefaults]synchronize] ;
@@ -34,6 +34,15 @@
 
 -(void)sortList{
     [self.lists sortUsingSelector:@selector(compare:)] ;
+}
+
++(NSInteger)nextCheckListItemId{
+    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults] ;
+    NSInteger itemId = [userDefaults integerForKey:@"CheckListItemId"] ;
+    
+    [userDefaults setInteger:itemId+1 forKey:@"CheckListItemId"] ;
+    [userDefaults synchronize] ;
+    return itemId ;
 }
 
 -(id)init{

@@ -29,6 +29,9 @@
 - (IBAction)cancel:(id)sender;
 - (IBAction)done:(id)sender;
 
+@property(weak ,nonatomic)IBOutlet UISwitch* switchControl ;
+@property(weak ,nonatomic)IBOutlet UILabel* dueDateLabel ;
+
 @property(strong ,nonatomic)CheckListItem* itemToEdit ;
 
 @end

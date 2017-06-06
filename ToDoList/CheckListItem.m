@@ -7,8 +7,18 @@
 //
 
 #import "CheckListItem.h"
+#import "DataModel.h"
 
 @implementation CheckListItem
+
+
+-(instancetype)init{
+    self = [super init] ;
+    if(self){
+        self.itemId = [DataModel nextCheckListItemId] ;
+    }
+    return self ;
+}
 
 -(void)toggleChecked{
     self.checked = !self.checked ;
@@ -18,6 +28,9 @@
     if(self = [super init]){
         self.text = [aDecoder decodeObjectForKey:@"Text"] ;
         self.checked = [aDecoder decodeBoolForKey:@"Checked"] ;
+        self.dueDate = [aDecoder decodeObjectForKey:@"DueDate"] ;
+        self.shouldRemind = [aDecoder decodeBoolForKey:@"ShouldRemind"] ;
+        self.itemId = [aDecoder decodeIntegerForKey:@"ItemId"] ;
     }
     return self ;
 }
@@ -25,5 +38,8 @@
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.text forKey:@"Text"] ;
     [aCoder encodeBool:self.checked forKey:@"Checked"] ;
+    [aCoder encodeObject:self.dueDate forKey:@"DueDate"] ;
+    [aCoder encodeBool:self.shouldRemind forKey:@"ShouldRemind"] ;
+    [aCoder encodeInteger:self.itemId forKey:@"ItemId"];
 }
 @end

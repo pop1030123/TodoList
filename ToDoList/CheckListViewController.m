@@ -27,6 +27,25 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)configCheckmarkForCell:(UITableViewCell*)cell withCheckListItem:(CheckListItem*)item{
+    UILabel* label = [cell viewWithTag:101] ;
+    
+    if(item.checked){
+        label.text = @"√" ;
+    }else{
+        label.text = @"" ;
+    }
+    label.textColor = self.view.tintColor ;
+}
+
+-(void)configTextForCell:(UITableViewCell*)cell withCheckListItem:(CheckListItem*)item{
+    UILabel *label = [cell viewWithTag:100] ;
+//    label.text = item.text ;
+    label.text = [NSString stringWithFormat:@"%ld ,%@", item.itemId,item.text] ;
+}
+
+
+#pragma mark - tableView
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.checkList.items count] ;
@@ -54,30 +73,18 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES] ;
 }
 
--(void)configCheckmarkForCell:(UITableViewCell*)cell withCheckListItem:(CheckListItem*)item{
-    UILabel* label = [cell viewWithTag:101] ;
-    
-    if(item.checked){
-        label.text = @"√" ;
-    }else{
-        label.text = @"" ;
-    }
-    label.textColor = self.view.tintColor ;
-}
-
--(void)configTextForCell:(UITableViewCell*)cell withCheckListItem:(CheckListItem*)item{
-    UILabel *label = [cell viewWithTag:100] ;
-    label.text = item.text ;
-}
-
 -(void)tableView:(UITableView*)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-
+    
     [self.checkList.items removeObjectAtIndex:indexPath.row] ;
     
     NSArray* indexPaths = @[indexPath] ;
     
     [tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationAutomatic] ;
 }
+
+
+
+#pragma mark - itemDetailViewController delegate
 
 -(void)itemDetailViewController:(ItemDetailViewController *)controller didFinishAddingItem:(CheckListItem *)item{
     
