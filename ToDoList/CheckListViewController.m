@@ -62,6 +62,7 @@
     }else{
         label.text = @"" ;
     }
+    label.textColor = self.view.tintColor ;
 }
 
 -(void)configTextForCell:(UITableViewCell*)cell withCheckListItem:(CheckListItem*)item{
