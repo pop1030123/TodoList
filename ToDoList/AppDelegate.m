@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AllListsViewController.h"
 #import "DataModel.h"
+#import <UserNotifications/UserNotifications.h>
 
 @interface AppDelegate ()
 
@@ -29,6 +30,39 @@ DataModel* _dataModel ;
     UINavigationController* navController = (UINavigationController*)self.window.rootViewController ;
     AllListsViewController* allListsController = navController.viewControllers[0] ;
     allListsController.dataModel = _dataModel ;
+    
+//    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:10] ;
+//    UILocalNotification * localNotification = [[UILocalNotification alloc]init] ;
+//    localNotification.fireDate = date ;
+//    
+//    localNotification.timeZone = [NSTimeZone defaultTimeZone] ;
+//    localNotification.alertBody = @"2017 ,money!!!" ;
+//    localNotification.soundName = UILocalNotificationDefaultSoundName ;
+//    [[UIApplication sharedApplication] scheduleLocalNotification:localNotification] ;
+
+//    UNNotificationContent *content = [[UNNotificationContent alloc] init];
+    UNMutableNotificationContent* content = [[UNMutableNotificationContent alloc] init];
+    content.title = @"2017 ,money!!!" ;
+    content.body = @"my money!!!!" ;
+    content.sound = [UNNotificationSound defaultSound];
+    content.categoryIdentifier = @"TIMER_EXPIRED";
+    
+    NSDateComponents* fireDate = [[NSDateComponents alloc] init];
+    fireDate.hour = 20;
+    fireDate.minute = 11;
+    
+    UNCalendarNotificationTrigger* trigger = [UNCalendarNotificationTrigger
+                                              triggerWithDateMatchingComponents:fireDate repeats:NO];
+    
+    UNNotificationRequest* request = [UNNotificationRequest
+                                      requestWithIdentifier:@"MorningAlarm" content:content trigger:trigger];
+    UNUserNotificationCenter* center = [UNUserNotificationCenter currentNotificationCenter];
+    NSLog(@"发送本地通知消息....") ;
+    [center addNotificationRequest:request withCompletionHandler:^(NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
     
     return YES;
 }

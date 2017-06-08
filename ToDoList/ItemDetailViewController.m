@@ -71,6 +71,9 @@ BOOL _datePickerVisible ;
         self.switchControl.on = NO ;
         _dueDate = [NSDate date] ;
     }
+    if(!_dueDate){
+        _dueDate = [NSDate date] ;
+    }
     
     [self updateDueDateLabel] ;
     
@@ -112,12 +115,15 @@ BOOL _datePickerVisible ;
         newItem.checked = NO ;
         newItem.dueDate = _dueDate ;
         newItem.shouldRemind = self.switchControl.on ;
+        [newItem scheduleNotification] ;
         
         [self.delegate itemDetailViewController:self didFinishAddingItem:newItem] ;
     }else{
         self.itemToEdit.text = self.textField.text ;
         self.itemToEdit.dueDate = _dueDate ;
         self.itemToEdit.shouldRemind = self.switchControl.on ;
+        
+        [self.itemToEdit scheduleNotification] ;
         
         [self.delegate itemDetailViewController:self didFinishEditingItem:self.itemToEdit];
     }

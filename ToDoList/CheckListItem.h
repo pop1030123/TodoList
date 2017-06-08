@@ -20,4 +20,6 @@
 
 
 -(void)toggleChecked;
+
+-(void)scheduleNotification;
 @end

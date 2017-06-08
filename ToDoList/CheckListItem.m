@@ -35,6 +35,17 @@
     return self ;
 }
 
+-(void)scheduleNotification{
+    if(self.shouldRemind
+       &&
+       [self.dueDate compare:[NSDate date]] != NSOrderedAscending){
+        
+//        UILocalNotification *localNotification = [[UILocalNotification alloc]init] ;
+//        localNotification.fireDate = self.dueDate ;
+//        UNMutableNotificationContent *hello=[[UNMutableNotificationContent alloc] init];
+    }
+}
+
 -(void)encodeWithCoder:(NSCoder *)aCoder{
     [aCoder encodeObject:self.text forKey:@"Text"] ;
     [aCoder encodeBool:self.checked forKey:@"Checked"] ;
